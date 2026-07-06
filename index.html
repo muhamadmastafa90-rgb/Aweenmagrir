@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بۆ تاقانەکەم 🌸</title>
-    <!-- هێنانی فۆنتی شیرینی کوردی لۆ چارەسەری کێشەی نوسینەکە -->
+    <!-- هێنانی فۆنتی شیرینی کوردی بۆ نوسینەکان -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rudur&display=swap" rel="stylesheet">
@@ -14,12 +14,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Rudur', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
             background: linear-gradient(180deg, #fff5f5 0%, #fff0f6 50%, #f3e8ff 100%);
             color: #4a044e;
+            font-family: 'Rudur', 'Courier New', Tahoma, sans-serif;
             min-height: 100vh;
             overflow-y: auto;
             overflow-x: hidden;
@@ -35,6 +35,7 @@
             display: flex;
             flex-direction: column;
             gap: 25px;
+            z-index: 2;
         }
 
         .music-card {
@@ -57,6 +58,7 @@
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(244, 114, 182, 0.3);
             width: 100%;
+            font-family: 'Rudur', sans-serif;
             transition: all 0.2s ease;
         }
 
@@ -74,9 +76,9 @@
             font-weight: 800;
             color: #701a75;
             margin-bottom: 5px;
+            font-family: 'Rudur', sans-serif;
         }
 
-        /* دروستکردنی دوو پاندای ئاشق بە کۆد بۆ ئەوەی کێشەی نەکردنەوەی نەمێنێت */
         .panda-container {
             width: 100%;
             display: flex;
@@ -102,15 +104,19 @@
             line-height: 1.8;
             margin-bottom: 25px;
             border-right: 4px solid #db2777;
+            font-family: 'Rudur', sans-serif;
         }
 
+        /* بەشی تایبەت بە فۆنتی تایپینگی کوردی */
         .text-body {
             text-align: justify;
-            line-height: 2.2;
+            line-height: 2.3;
             font-size: 16px;
             color: #3b0764;
             min-height: 200px;
             white-space: pre-line;
+            font-family: 'Rudur', 'Courier New', monospace; /* فۆنتی شێوازی تایپینگ */
+            font-weight: 500;
         }
 
         .cursor {
@@ -134,7 +140,7 @@
             pointer-events: none;
             animation: moveUp 4.5s linear infinite;
             opacity: 0;
-            z-index: -1;
+            z-index: 1;
         }
 
         @keyframes moveUp {
@@ -143,26 +149,34 @@
             90% { opacity: 0.3; }
             100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
         }
+
+        /* شاردنەوەی یاریەکە لە پشت شاشە بۆ کارکردنی مسۆگەری گۆرانییەکە */
+        #youtube-player {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
 
-    <!-- لێدانی ڕاستەقینەی گۆرانی Scared to Fall in Love -->
-    <audio id="love-song" src="https://pub-c5e31b5cdafb419a991161d1022a270d.r2.dev/scared_to_fall_in_love.mp3" loop></audio>
+    <!-- بەستەر و کۆدی یوتیوبی فەرمی لۆ گۆرانی Scared to Fall in Love تا بە مسۆگەری لێبدرێت -->
+    <iframe id="youtube-player" src="https://www.youtube.com/embed/S2pS6p_5_QY?enablejsapi=1&loop=1&playlist=S2pS6p_5_QY" allow="autoplay"></iframe>
 
     <div class="container">
         
         <div class="music-card">
-            <button class="music-btn" onclick="startEverything()" id="btn-text">🎵 کرتە بکە لۆ لێدانی گۆرانی و خوێندنەوەی نامەکە</button>
+            <button class="music-btn" onclick="startEverything()" id="btn-text">🎵 کرتە بکە بۆ لێدانی گۆرانی و خوێندنەوەی نامەکە</button>
         </div>
 
         <div class="story-card">
             <h1 class="main-title">بۆ شاژنی دڵم 🧸</h1>
             
-            <!-- وێنەی وەک کۆدی SVG ڕوون لۆ دوو پاندای کارتۆنی ئاشقی یەکتر -->
+            <!-- وێنەی دوو پاندای کارتۆنی ئاشق بە کۆدی ناوخۆیی -->
             <div class="panda-container">
                 <svg width="220" height="120" viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
-                    <!-- پاندای چەپ -->
                     <circle cx="60" cy="70" r="35" fill="white" stroke="#333" stroke-width="3"/>
                     <circle cx="35" cy="40" r="12" fill="#333"/>
                     <circle cx="85" cy="40" r="12" fill="#333"/>
@@ -174,10 +188,8 @@
                     <ellipse cx="40" cy="78" rx="5" ry="3" fill="#ffb6c1"/>
                     <ellipse cx="80" cy="78" rx="5" ry="3" fill="#ffb6c1"/>
                     
-                    <!-- دڵی سووری ناوەڕاست -->
                     <path d="M110 55 C105 45, 95 45, 95 55 C95 65, 110 75, 110 75 C110 75, 125 65, 125 55 C125 45, 115 45, 110 55 Z" fill="#ff3366" transform="scale(1.2) translate(-18, -10)"/>
                     
-                    <!-- پاندای ڕاست -->
                     <circle cx="160" cy="70" r="35" fill="white" stroke="#333" stroke-width="3"/>
                     <circle cx="135" cy="40" r="12" fill="#333"/>
                     <circle cx="185" cy="40" r="12" fill="#333"/>
@@ -202,7 +214,18 @@
     </div>
 
     <script>
-        const loveSong = document.getElementById('love-song');
+        let player;
+        // پەیوەندیکردن بە فۆرمی یوتیوبەوە بۆ کۆنترۆڵکردنی دەنگەکە
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player');
+        }
+        
+        // بارکردنی سکریپتی فەرمی یوتیوب
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
         const btnText = document.getElementById('btn-text');
         const typingContainer = document.getElementById('typing-text');
 
@@ -214,11 +237,16 @@
 
         let index = 0;
         let isTypingStarted = false;
+        let isPlaying = false;
 
         function startEverything() {
-            if (loveSong.paused) {
-                loveSong.play();
+            if (!isPlaying) {
+                // لێدانی گۆرانی یوتیوبەکە بە فەرمی
+                if(player && player.playVideo) {
+                    player.playVideo();
+                }
                 btnText.innerText = "⏸️ ڕاگرتنی گۆرانییەکە";
+                isPlaying = true;
                 
                 if (!isTypingStarted) {
                     typingContainer.innerHTML = "";
@@ -226,8 +254,11 @@
                     typeText();
                 }
             } else {
-                loveSong.pause();
+                if(player && player.pauseVideo) {
+                    player.pauseVideo();
+                }
                 btnText.innerText = "🎵 لێدانی گۆرانی کاتی خوێندنەوە";
+                isPlaying = false;
             }
         }
 
@@ -235,7 +266,7 @@
             if (index < fullMessage.length) {
                 typingContainer.innerHTML = fullMessage.substring(0, index + 1) + '<span class="cursor"></span>';
                 index++;
-                setTimeout(typeText, 50);
+                setTimeout(typeText, 60); // خێرایی هێواش و مۆدێرنی تایپینگ لۆ خوێندنەوە
             } else {
                 typingContainer.innerHTML = fullMessage;
             }
