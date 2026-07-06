@@ -13,266 +13,196 @@
         }
 
         body {
-            background: radial-gradient(circle at center, #ffffff 0%, #fff0f6 60%, #f3e8ff 100%);
+            /* باگراوەندێکی پەمەیی و مۆر و سپی زۆر نەرم */
+            background: linear-gradient(180deg, #fff0f6 0%, #f3e8ff 50%, #fae8ff 100%);
+            color: #4a044e;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
-            user-select: none;
-        }
-
-        /* بەشی یەکەم: بەرگی نامە سەرەکییەکە */
-        .envelope-container {
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.4s ease;
-            z-index: 20;
-        }
-
-        .envelope-container:hover {
-            transform: scale(1.05);
-        }
-
-        .envelope {
-            width: 280px;
-            height: 180px;
-            background: #ffffff;
-            border-radius: 20px;
-            border: 2px solid #f472b6;
-            box-shadow: 0 20px 40px rgba(244, 114, 182, 0.2);
+            /* ڕێگەپێدان بە چوونە سەرەوە و خوارەوە (Scroll) لۆ مۆبایل */
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 20px 15px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            position: relative;
         }
 
-        .envelope::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 0;
-            height: 0;
-            border-left: 140px solid transparent;
-            border-right: 140px solid transparent;
-            border-top: 100px solid rgba(244, 114, 182, 0.1);
-            border-radius: 20px 20px 0 0;
+        .container {
+            width: 100%;
+            max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 15px;
+            margin-bottom: 40px;
         }
 
-        .heart-seal {
-            font-size: 50px;
-            animation: pulse 1.5s infinite;
-            z-index: 2;
-        }
-
-        .click-hint {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #db2777;
-            font-weight: 600;
-        }
-
-        /* بەشی دووەم: شاشەی ئەلبوومە گەورەکە */
-        .main-showcase {
-            width: 90%;
-            max-width: 850px;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px);
-            border-radius: 32px;
+        /* کارتی سەرەکی */
+        .cute-card {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 30px;
+            padding: 30px 20px;
+            box-shadow: 0 15px 35px rgba(219, 39, 119, 0.1);
             border: 2px solid rgba(244, 114, 182, 0.3);
-            box-shadow: 0 30px 60px rgba(219, 39, 119, 0.1);
-            display: flex;
-            flex-wrap: wrap;
-            overflow: hidden;
-            animation: openBook 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-            z-index: 10;
-        }
-
-        /* دابەشکردنی شاشەکە بۆ دوو بەش لەسەر کۆمپیوتەر و یەک بەش لەسەر مۆبایل */
-        .left-side, .right-side {
-            flex: 1;
-            min-width: 320px;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .right-side {
-            background: linear-gradient(135deg, rgba(255, 240, 246, 0.6) 0%, rgba(243, 232, 255, 0.6) 100%);
-            border-left: 1px solid rgba(244, 114, 182, 0.2);
-        }
-
-        .trophy-box {
             text-align: center;
-            position: relative;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .welcome-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #701a75;
+            margin-bottom: 10px;
+        }
+
+        /* چوارچێوەی وێنەی دوو پاندای کویت */
+        .image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
         }
 
         .message-image {
-            width: 180px;
-            height: 180px;
-            border-radius: 24px;
-            object-fit: cover;
-            border: 5px solid #fff;
-            box-shadow: 0 15px 35px rgba(244, 114, 182, 0.25);
-            animation: float 4s ease-in-out infinite alternate;
-        }
-
-        .trophy-title {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #701a75;
-            font-weight: 700;
-            background: #fff;
-            padding: 8px 20px;
-            border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            display: inline-block;
-        }
-
-        /* بەشی نامە ڕۆمانسییەکە */
-        .letter-content {
             width: 100%;
-            text-align: justify;
+            max-width: 280px;
+            height: auto;
+            border-radius: 24px;
+            border: 4px solid #fff;
+            box-shadow: 0 10px 25px rgba(244, 114, 182, 0.2);
+            animation: softBounce 3s ease-in-out infinite alternate;
         }
 
-        .shair {
+        @keyframes softBounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-8px); }
+        }
+
+        /* بەشی نامە و دڵدانەوەی نوێ و ڕێک */
+        .letter-box {
+            text-align: justify;
+            line-height: 2;
+            font-size: 15.5px;
+            color: #4a044e;
+        }
+
+        .shair-box {
+            text-align: center;
             font-style: italic;
             color: #db2777;
             font-size: 17px;
             font-weight: 600;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .paragraph {
-            font-size: 15px;
-            line-height: 1.9;
-            color: #4a044e;
-            margin-top: 15px;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+            border-radius: 15px;
+            border: 1px dashed rgba(244, 114, 182, 0.4);
         }
 
         .highlight {
             color: #db2777;
             font-weight: 700;
-            background: rgba(244, 114, 182, 0.12);
+            background: rgba(244, 114, 182, 0.15);
             padding: 2px 6px;
             border-radius: 6px;
         }
 
-        /* ئەنیمێیشنەکان */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-            100% { transform: scale(1); }
+        /* دوگمەی مۆسیقا لە سەرەوە */
+        .music-control {
+            background: white;
+            border: 1px solid rgba(244, 114, 182, 0.4);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #db2777;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 10px;
         }
-
-        @keyframes float {
-            0% { transform: translateY(0) rotate(-2deg); }
-            100% { transform: translateY(-12px) rotate(2deg); }
-        }
-
-        @keyframes openBook {
-            0% { transform: scale(0.8) rotateX(-10deg); opacity: 0; }
-            100% { transform: scale(1) rotateX(0); opacity: 1; }
-        }
-
-        .hidden { display: none !important; }
 
         /* دڵە باراوەکان */
-        .floating-heart {
+        .heart {
             position: absolute;
             pointer-events: none;
-            animation: rise 4s linear infinite;
+            animation: floatUp 4.5s linear infinite;
             opacity: 0;
-            z-index: 1;
+            z-index: -1;
         }
 
-        @keyframes rise {
-            0% { transform: translateY(105vh) scale(0.5); opacity: 0; }
-            15% { opacity: 0.8; }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.8; }
             90% { opacity: 0.4; }
-            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- مۆسیقای باگراوند (تەنها یەک دانە کە ڕێک لەگەڵ کردنەوەی نامەکە لێدەدرێت) -->
+    <!-- لۆ تەنها یەک مۆسیقا بە ناوی music.mp3 لای خۆت دابنی -->
     <audio id="bg-music" src="music.mp3" loop></audio>
 
-    <!-- قۆناغی یەکەم: بەرگی نامە مۆدێرنەکە -->
-    <div id="envelope-screen" class="envelope-container" onclick="openEnvelope()">
-        <div class="envelope">
-            <div class="heart-seal">✉️</div>
-            <p class="click-hint">کرتە لێرە بکە، سوپڕایزێک... 💜</p>
-        </div>
-    </div>
-
-    <!-- قۆناغی دووەم: ئەلبوومی دڵدانەوە شاهانەییەکە -->
-    <div id="main-screen" class="main-showcase hidden">
+    <div class="container">
         
-        <!-- لای ڕاست: جامی دڵ و وێنەی پاندا -->
-        <div class="right-side">
-            <div class="trophy-box">
-                <img src="image.jpg" alt="Cute Panda" class="message-image">
-                <br>
-                <div class="trophy-title">جامی گەردوونی من 🏆✨</div>
-            </div>
-        </div>
+        <!-- دوگمەی لێدانی مۆسیقا (لۆ مۆبایل زۆر گرنگە چونکە ئۆتۆماتیک لێ نادرێت) -->
+        <button class="music-control" onclick="toggleMusic()" id="music-btn">🎵 لێدانی مۆسیقا لۆ فەزاكە</button>
 
-        <!-- لای چەپ: نامە سوپەر ڕۆمانسییەکە -->
-        <div class="left-side">
-            <div class="letter-content">
-                <p class="shair">«با بڕوخێ مۆندیال و دنیا و ناوبژیوان...»</p>
-                <p class="shair" style="margin-bottom: 20px;">«کریستیانۆش دەرکرا، گرنگ نییە... تۆ تەنها جامی منی!» 💜</p>
+        <div class="cute-card">
+            <h1 class="welcome-title">لۆ تاقانەکەی دڵم 🧸✨</h1>
+            
+            <!-- وێنەی دوو پاندای زۆر کویت کە خۆم بە ئۆتۆماتیک لە ئینتەرنێتەوە بۆم داناویت -->
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1598128558393-70ff21433be0?q=80&w=600&auto=format&fit=crop" alt="Cute Pandas" class="message-image">
+            </div>
+
+            <div class="letter-box">
+                <div class="shair-box">
+                    «با بڕوخێ مۆندیال و دنیا و ناوبژیوان...» ❤️<br>
+                    «کریستیانۆش دەرکرا، گرنگ نییە... تۆ تەنها جامی منی!» 🏆
+                </div>
+
+                <p>سڵاو لە دڵە میهرەبانەکەت... دەزانم چەندە خەمباری لۆ دەرکرانی کریستیانۆ ڕۆناڵدۆ و چەندە بە پەرۆش بووی بۆی، بەڵام ویستم پێتبڵێم هیچ شتێک لەم دنیایەدا شایەنی ئەوە نییە ئەو چاوە جوانانەت غەمبار بکات. تۆپی پێ تەنها یارییەکە، بەڵام بوونی تۆ لە ژیانی مندا گرنگترین ڕاستییە. 🌟</p>
                 
-                <p class="paragraph">سەرەتا ببوورە... ببوورە ئەگەر ئەم دوو سێ ڕۆژە لێت تووڕە بووم یان دڵتەنگم کردبی. خۆت دەزانی هیچ شتێک لەم دنیایەدا هێندەی غەمباری تۆ ئازارم نادات. هیچ شتێک شایەنی ئەوە نییە ئەو چاوە جوانانەت پێ تەڵخ ببن، تەنانەت دۆڕانی مۆندیالیش! 🥺</p>
+                <p style="margin-top: 15px;">با جیهان هەرچۆنێک بێت، تۆ لای من هەمیشە لە پلەی یەکەمی و گەورەترین نازناوی منی. <span class="highlight">تۆ تەواوی دنیای منی</span> و هیچ دۆڕانێک ناتوانێت لە بەهای تۆ کەم بکاتەوە لای من. 🧸</p>
                 
-                <p class="paragraph">خۆشەوێترینەکەم، من تۆم خۆشەوێ... گرنگ نییە چۆنیت، جوان بیت یان ناشرین، من تەنها ئاشقی دڵ و ڕۆحی تۆ بوومە. <span class="highlight">تۆ تەواوی دنیای منی</span> و هیچ نازناوێک لە تۆ بەنرختر نییە بۆ من. 🧸</p>
-                
-                <p class="paragraph">ئێستا خەمەکانت لابدە و <span class="highlight">وەرە باوەشی من...</span> لێرە هیچ دۆڕانێک بوونی نییە، لێرە بە ئارامی ماچت دەکەم و دڵت دەدەمەوە تا هەموو ناخۆشییەکان فەرامۆش بکەیت. تەنها یەک داواکاریم لێت هەیە؛ تکایە وازی لەو شتە بێنە و مەیەڵە هیچ شتێک دڵمان سارد بکاتەوە. با پێکەوە هەمیشە براوە بین. 🌸</p>
+                <p style="margin-top: 15px;">ئێستا خەمەکانت لەبیربکە و <span class="highlight">وەرە باوەشی من...</span> لێرە چاوەڕێتم، بە هێواشی ماچت دەکەم و دڵت دەدەمەوە تا دووبارە ئەو زەردەخەنە کویتەت بگەڕێتەوە سەر لێوت. تەنها یەک داواکاریم لێت هەیە؛ تکایە وازی لەو شتە بێنە و با هیچ شتێک مەودا نەخاتە نێوانمان. من و تۆ پێکەوە هەمیشە براوەین. 🌸💜</p>
             </div>
         </div>
 
     </div>
 
     <script>
-        const envelopeScreen = document.getElementById('envelope-screen');
-        const mainScreen = document.getElementById('main-screen');
         const bgMusic = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-btn');
 
-        function openEnvelope() {
-            // شاردنەوەی بەرگی نامەکە بە ئەنیمێیشنی جوان
-            envelopeScreen.style.transition = "all 0.5s ease";
-            envelopeScreen.style.opacity = "0";
-            envelopeScreen.style.transform = "scale(0.8)";
-            
-            setTimeout(() => {
-                envelopeScreen.classList.add('hidden');
-                mainScreen.classList.remove('hidden');
-                
-                // لێدانی مۆسیقا بە کاتێکی گونجاو
-                bgMusic.play().catch(e => console.log("Music auto-play blocked"));
-                
-                // دەستپێکردنی بارینی دڵەکان
-                setInterval(spawnHearts, 250);
-            }, 400);
+        function toggleMusic() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicBtn.innerText = "⏸️ وەستاندنی مۆسیقا";
+            } else {
+                bgMusic.pause();
+                musicBtn.innerText = "🎵 لێدانی مۆسیقا لۆ فەزاكە";
+            }
         }
 
-        function spawnHearts() {
+        // درووستکردنی دڵە باراوەکان بە ئۆتۆماتیکی
+        function createHeart() {
             const heart = document.createElement('div');
-            heart.classList.add('floating-heart');
+            heart.classList.add('heart');
             heart.innerHTML = ['💜', '💖', '🤍', '🌸', '✨', '💕'][Math.floor(Math.random() * 6)];
             heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+            heart.style.fontSize = Math.random() * 18 + 14 + 'px';
             heart.style.animationDuration = Math.random() * 2 + 3 + 's';
             document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 4000);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 4500);
         }
+
+        // دەستپێکردنی دڵەکان هەر لەگەڵ کردنەوەی سایتەکە
+        setInterval(createHeart, 300);
     </script>
 </body>
 </html>
