@@ -138,29 +138,29 @@
 </head>
 <body>
 
-    <!-- بەستەری نوێی مۆسیقای ئاشقانەی ئینگلیزی (Romantic Acoustic Guitar) -->
-    <audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+    <!-- بەستەری جێگیری گۆرانی ئاشقانە و کلاسیکی ئینگلیزی -->
+    <audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" loop></audio>
 
     <div class="container">
         
-        <!-- دوگمەی لێدانی مۆسیقا (سیستەمی مۆبایل ڕێگا نادات بە بێ کلیک گۆرانی لێبدرێت، بۆیە ئەمە پێویستە) -->
-        <button class="music-control" onclick="toggleMusic()" id="music-btn">🎵 لێدانی مۆسیقای ئاشقانە</button>
+        <!-- دوگمەی لێدانی مۆسیقا لۆ مۆبایل -->
+        <button class="music-control" onclick="toggleMusic()" id="music-btn">🎵 لێدانی گۆرانی کلاسیکی ئاشقانە</button>
 
         <div class="cute-card">
             <h1 class="welcome-title">لۆ تاقانەکەی دڵم 🧸✨</h1>
             
-            <!-- وێنەی ئەنیمێیشنی دوو پاندای زۆر قشت و کویتی ئاشقانە -->
+            <!-- وێنەی چاککراوی دوو پاندای ئەنیمێیشنی قشت و مۆدێرن (بێ کێشە لۆد دەبێت) -->
             <div class="image-container">
-                <img src="https://i.pinimg.com/564x/41/bf/72/41bf72863e41df66db4b0d0999557458.jpg" alt="Cute Animated Pandas" class="message-image">
+                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=pandaLove" alt="Cute Pandas" class="message-image" style="background: #ffe4e6; padding: 10px;">
             </div>
 
             <div class="letter-box">
                 <div class="shair-box">
                     «با بڕوخێ مۆندیال و دنیا و ناوبژیوان...» ❤️<br>
-                    «کریستیانۆش دەرکرا، گرنگ نییە... تۆ تەنها جامی منی!» 🏆
+                    «کریستیانۆش دەرکرا, گرنگ نییە... تۆ تەنها جامی منی!» 🏆
                 </div>
 
-                <p>سڵاو لە دڵە میهرەبانەکەت... دەزانم چەندە خەمbاری لۆ دەرکرانی کریستیانۆ ڕۆناڵدۆ و چەندە بە پەرۆش بووی بۆی، بەڵام ویستم پێتبڵێم هیچ شتێک لەم دنیایەدا شایەنی ئەوە نییە ئەو چاوە جوانانەت غەمبار بکات. تۆپی پێ تەنها یارییەکە، بەڵام بوونی تۆ لە ژیانی مندا گرنگترین ڕاستییە. 🌟</p>
+                <p>سڵاو لە دڵە میهرەبانەکەت... دەزانم چەندە خەمباری لۆ دەرکرانی کریستیانۆ ڕۆناڵدۆ و چەندە بە پەرۆش بووی بۆی، بەڵام ویستم پێتبڵێم هیچ شتێک لەم دنیایەدا شایەنی ئەوە نییە ئەو چاوە جوانانەت غەمبار بکات. تۆپی پێ تەنها یارییەکە، بەڵام بوونی تۆ لە ژیانی مندا گرنگترین ڕاستییە. 🌟</p>
                 
                 <p style="margin-top: 15px;">با جیهان هەرچۆنێک بێت، تۆ لای من هەمیشە لە پلەی یەکەمی و گەورەترین نازناوی منی. <span class="highlight">تۆ تەواوی دنیای منی</span> و هیچ دۆڕانێک ناتوانێت لە بەهای تۆ کەم بکاتەوە لای من. 🧸</p>
                 
@@ -180,7 +180,7 @@
                 musicBtn.innerText = "⏸️ وەستاندنی مۆسیقا";
             } else {
                 bgMusic.pause();
-                musicBtn.innerText = "🎵 لێدانی مۆسیقای ئاشقانە";
+                musicBtn.innerText = "🎵 لێدانی گۆرانی کلاسیکی ئاشقانە";
             }
         }
 
