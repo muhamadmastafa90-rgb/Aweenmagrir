@@ -13,7 +13,6 @@
         }
 
         body {
-            /* باگراوەندێکی پەمەیی و مۆر و سپی زۆر نەرم */
             background: linear-gradient(180deg, #fff0f6 0%, #f3e8ff 50%, #fae8ff 100%);
             color: #4a044e;
             min-height: 100vh;
@@ -36,11 +35,11 @@
         }
 
         .cute-card {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 30px;
             padding: 30px 20px;
-            box-shadow: 0 15px 35px rgba(219, 39, 119, 0.1);
-            border: 2px solid rgba(244, 114, 182, 0.3);
+            box-shadow: 0 15px 35px rgba(219, 39, 119, 0.12);
+            border: 2px solid rgba(244, 114, 182, 0.35);
             text-align: center;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -57,22 +56,21 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            margin: 15px 0;
+            margin: 20px 0;
         }
 
         .message-image {
             width: 100%;
-            max-width: 280px;
+            max-width: 250px;
             height: auto;
-            border-radius: 24px;
-            border: 4px solid #fff;
-            box-shadow: 0 10px 25px rgba(244, 114, 182, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(244, 114, 182, 0.15);
             animation: softBounce 3s ease-in-out infinite alternate;
         }
 
         @keyframes softBounce {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-8px); }
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-6px) scale(1.02); }
         }
 
         .letter-box {
@@ -88,11 +86,11 @@
             color: #db2777;
             font-size: 17px;
             font-weight: 600;
-            margin-bottom: 15px;
-            background: rgba(255, 255, 255, 0.5);
-            padding: 10px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 12px;
             border-radius: 15px;
-            border: 1px dashed rgba(244, 114, 182, 0.4);
+            border: 1px dashed rgba(244, 114, 182, 0.5);
         }
 
         .highlight {
@@ -106,7 +104,7 @@
         .music-control {
             background: white;
             border: 1px solid rgba(244, 114, 182, 0.4);
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 50px;
             font-size: 14px;
             font-weight: bold;
@@ -118,7 +116,7 @@
         }
 
         .music-control:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
             background: #fff0f6;
         }
 
@@ -140,20 +138,20 @@
 </head>
 <body>
 
-    <!-- مۆسیقای ئاشقانەی ئینگلیزی ئۆنلاین (بە بێ پێویستی بە داگرتن لای خۆت) -->
-    <audio id="bg-music" src="https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-493.mp3" loop></audio>
+    <!-- بەستەری نوێی مۆسیقای ئاشقانەی ئینگلیزی (Romantic Acoustic Guitar) -->
+    <audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
 
     <div class="container">
         
-        <!-- دوگمەی لێدانی مۆسیقا لۆ مۆبایل -->
+        <!-- دوگمەی لێدانی مۆسیقا (سیستەمی مۆبایل ڕێگا نادات بە بێ کلیک گۆرانی لێبدرێت، بۆیە ئەمە پێویستە) -->
         <button class="music-control" onclick="toggleMusic()" id="music-btn">🎵 لێدانی مۆسیقای ئاشقانە</button>
 
         <div class="cute-card">
             <h1 class="welcome-title">لۆ تاقانەکەی دڵم 🧸✨</h1>
             
-            <!-- وێنەی دوو پاندای ئاشقانەی زۆر کویت بە شێوەی ئۆنلاین -->
+            <!-- وێنەی ئەنیمێیشنی دوو پاندای زۆر قشت و کویتی ئاشقانە -->
             <div class="image-container">
-                <img src="https://img.freepik.com/free-vector/cute-panda-couple-love-valentines-day_1017-36224.jpg" alt="Cute Pandas" class="message-image">
+                <img src="https://i.pinimg.com/564x/41/bf/72/41bf72863e41df66db4b0d0999557458.jpg" alt="Cute Animated Pandas" class="message-image">
             </div>
 
             <div class="letter-box">
@@ -162,7 +160,7 @@
                     «کریستیانۆش دەرکرا، گرنگ نییە... تۆ تەنها جامی منی!» 🏆
                 </div>
 
-                <p>سڵاو لە دڵە میهرەبانەکەت... دەزانم چەندە خەمباری لۆ دەرکرانی کریستیانۆ ڕۆناڵدۆ و چەندە بە پەرۆش بووی بۆی، بەڵام ویستم پێتبڵێم هیچ شتێک لەم دنیایەدا شایەنی ئەوە نییە ئەو چاوە جوانانەت غەمبار بکات. تۆپی پێ تەنها یارییەکە، بەڵام بوونی تۆ لە ژیانی مندا گرنگترین ڕاستییە. 🌟</p>
+                <p>سڵاو لە دڵە میهرەبانەکەت... دەزانم چەندە خەمbاری لۆ دەرکرانی کریستیانۆ ڕۆناڵدۆ و چەندە بە پەرۆش بووی بۆی، بەڵام ویستم پێتبڵێم هیچ شتێک لەم دنیایەدا شایەنی ئەوە نییە ئەو چاوە جوانانەت غەمبار بکات. تۆپی پێ تەنها یارییەکە، بەڵام بوونی تۆ لە ژیانی مندا گرنگترین ڕاستییە. 🌟</p>
                 
                 <p style="margin-top: 15px;">با جیهان هەرچۆنێک بێت، تۆ لای من هەمیشە لە پلەی یەکەمی و گەورەترین نازناوی منی. <span class="highlight">تۆ تەواوی دنیای منی</span> و هیچ دۆڕانێک ناتوانێت لە بەهای تۆ کەم بکاتەوە لای من. 🧸</p>
                 
