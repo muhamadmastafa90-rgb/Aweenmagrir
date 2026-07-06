@@ -29,10 +29,10 @@
             max-width: 430px;
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 25px;
         }
 
-        /* دوگمەی مۆسیقای سەرەکی */
+        /* دوگمەی مۆسیقای پریمێوم */
         .music-card {
             background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
@@ -46,18 +46,18 @@
             background: linear-gradient(135deg, #f472b6 0%, #d946ef 100%);
             color: white;
             border: none;
-            padding: 12px 30px;
+            padding: 14px 30px;
             border-radius: 50px;
             font-size: 15px;
             font-weight: bold;
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(244, 114, 182, 0.3);
             width: 100%;
-            transition: transform 0.2s;
+            transition: all 0.2s ease;
         }
 
         .music-btn:active {
-            transform: scale(0.98);
+            transform: scale(0.97);
         }
 
         /* کارتی ناوەڕۆک */
@@ -68,7 +68,6 @@
             box-shadow: 0 20px 40px rgba(219, 39, 119, 0.08);
             border: 2px solid rgba(244, 114, 182, 0.25);
             text-align: center;
-            position: relative;
         }
 
         .main-title {
@@ -78,27 +77,20 @@
             margin-bottom: 5px;
         }
 
-        .sub-title {
-            font-size: 14px;
-            color: #9d174d;
-            margin-bottom: 25px;
-            opacity: 0.8;
-        }
-
-        /* چوارچێوەی وێنەی پانداکان */
+        /* چوارچێوەی وێنەی پاندا ئاشقەکان */
         .panda-frame {
             width: 100%;
             display: flex;
             justify-content: center;
-            margin-bottom: 25px;
+            margin: 20px 0;
         }
 
         .panda-img {
             width: 100%;
-            max-width: 240px;
+            max-width: 260px;
             height: auto;
-            border-radius: 28px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(244, 114, 182, 0.15);
             animation: floatPanda 4s ease-in-out infinite alternate;
         }
 
@@ -107,10 +99,10 @@
             100% { transform: translateY(-8px) rotate(1deg); }
         }
 
-        /* بەشی هۆنراوە و دڵدانەوە */
+        /* بەشی هۆنراوە جێگیرەکە */
         .shair-premium {
             background: linear-gradient(135deg, #fff0f6 0%, #f3e8ff 100%);
-            padding: 20px 15px;
+            padding: 15px;
             border-radius: 22px;
             font-style: italic;
             color: #db2777;
@@ -119,26 +111,33 @@
             line-height: 1.8;
             margin-bottom: 25px;
             border-right: 4px solid #db2777;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,0.02);
         }
 
+        /* بەشی ئەنیمێیشنی تایپینگی نامەکە */
         .text-body {
             text-align: justify;
             line-height: 2.1;
-            font-size: 15.5px;
+            font-size: 16px;
             color: #3b0764;
+            min-height: 200px; /* بۆ ئەوەی شاشەکە تێکنەچێت کاتێک دەنوسرێت */
+            white-space: pre-line;
         }
 
-        .text-body p {
-            margin-bottom: 20px;
+        /* نیشاندەری تایپینگ (Cursor) */
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 18px;
+            background-color: #db2777;
+            margin-right: 3px;
+            animation: blink 0.7s infinite;
+            vertical-align: middle;
         }
 
-        .love-badge {
-            color: #db2777;
-            font-weight: 700;
-            background: rgba(244, 114, 182, 0.15);
-            padding: 3px 8px;
-            border-radius: 8px;
+        @keyframes blink {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
         }
 
         /* دڵە باراوەکان */
@@ -160,39 +159,33 @@
 </head>
 <body>
 
-    <!-- گۆرانی کلاسیک و زۆر هێمنی ئینگلیزی (بێ کێشە لۆد دەبێت) -->
-    <audio id="love-song" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" loop></audio>
+    <!-- گۆرانییەکی کلاسیکی یەکجار دڵنشین و ئاشقانەی ئینگلیزی بە دەنگ (Vocal) -->
+    <audio id="love-song" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
 
     <div class="container">
         
-        <!-- بەشی کۆنترۆڵی مۆسیقا لە سەرەوە -->
+        <!-- کۆنترۆڵی مۆسیقا -->
         <div class="music-card">
-            <button class="music-btn" onclick="controlMusic()" id="btn-text">🎵 لێدانی گۆرانی کاتی خوێندنەوە</button>
+            <button class="music-btn" onclick="startEverything()" id="btn-text">🎵 کرتە بکە لۆ لێدانی گۆرانی و خوێندنەوەی نامەکە</button>
         </div>
 
-        <!-- کارتی سەرەکی چیرۆکی دڵدانەوە -->
+        <!-- کارتی سەرەکی -->
         <div class="story-card">
             <h1 class="main-title">بۆ شاژنی دڵم 🧸</h1>
-            <p class="sub-title">سەیری خوارەوە بکە کاتێک گۆرانییەکە لێدەدرێت...</p>
             
-            <!-- وێنەی یەکجار کویت و جوانی دوو پاندا لە باوەشی یەکدا (کارتۆنی جێگیر) -->
+            <!-- وێنەی دوو پاندای ڕاستەقینەی ئاشق و زۆر شیرین لە باوەشی یەکدا -->
             <div class="panda-frame">
-                <img src="https://img.freepik.com/free-vector/cute-panda-couple-hug-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated_138676-5776.jpg" alt="Cute Pandas Hugging" class="panda-img">
+                <img src="https://img.freepik.com/premium-vector/cute-panda-couple-love-cartoon-vector-illustration_494539-725.jpg" alt="Cute Panda Couple In Love" class="panda-img">
             </div>
 
-            <!-- نامەکەت بە شێوازی نوێ و زۆر ڕێک -->
-            <div class="text-body">
-                <div class="shair-premium">
-                    «با بڕوخێ مۆندیال و دنیا و ناوبژیوان...» ❤️<br>
-                    «کریستیانۆش دەرکرا، گرنگ نییە... تۆ تەنها جامی منی!» 🏆
-                </div>
-
-                <p>سڵاو لە دڵە میهرەبانەکەت... دەزانم چەندە خەمباری لۆ دەرکرانی کریستیانۆ ڕۆناڵدۆ و چەندە بە پەرۆش بووی بۆی، بەڵام ویستم پێتبڵێم هیچ شتێک لەم دنیایەدا شایەنی ئەوە نییە ئەو چاوە جوانانەت غەمبار بکات. تۆپی پێ تەنها یارییەکە، بەڵام بوونی تۆ لە ژیانی مندا گرنگترین ڕاستییە. 🌟</p>
-                
-                <p>با جیهان هەرچۆنێک بێت، تۆ لای من هەمیشە لە پلەی یەکەمی و گەورەترین نازناوی منی. <span class="love-badge">تۆ تەواوی دنیای منی</span> و هیچ دۆڕانێک ناتوانێت لە بەهای تۆ کەم بکاتەوە لای من. 🧸</p>
-                
-                <p>ئێستا خەمەکانت لەبیربکە و <span class="love-badge">وەرە باوەشی من...</span> لێرە چاوەڕێتم، بە هێواشی ماچت دەکەم و دڵت دەدەمەوە تا دووبارە ئەو زەردەخەنە کویتەت بگەڕێتەوە سەر لێوت. تەنها یەک داواکاریم لێت هەیە؛ تکایە وازی لەو شتە بێنە و با هیچ شتێک مەودا نەخاتە نێوانمان. من و تۆ پێکەوە هەمیشە براوەین. 🌸💜</p>
+            <!-- هۆنراوە سەرەکییەکە -->
+            <div class="shair-premium">
+                «با بڕوخێ مۆندیال و دنیا و ناوبژیوان...» ❤️<br>
+                «کریستیانۆش دەرکرا، گرنگ نییە... تۆ تەنها جامی منی!» 🏆
             </div>
+
+            <!-- ئەم بەشە بە شێوازی تایپینگ دەنوسرێتەوە کاتێک کلیک لەسەر دوگمەکە دەکات -->
+            <div class="text-body" id="typing-text">بۆ دەستپێکردنی نامەکە، تکایە سەرەتا کلیک لەسەر دوگمەی سەرەوە بکە... 🌸</div>
         </div>
 
     </div>
@@ -200,18 +193,50 @@
     <script>
         const loveSong = document.getElementById('love-song');
         const btnText = document.getElementById('btn-text');
+        const typingContainer = document.getElementById('typing-text');
 
-        function controlMusic() {
+        // دەقی نامەکە کە بە شێوازی تایپینگ دێت
+        const fullMessage = `سڵاو لە دڵە میهرەبانەکەت... دەزانم چەندە خەمباری لۆ دەرکرانی کریستیانۆ ڕۆناڵدۆ و چەندە بە پەرۆش بووی بۆی، بەڵام ویستم پێتبڵێم هیچ شتێک لەم دنیایەدا شایەنی ئەوە نییە ئەو چاوە جوانانەت غەمبار بکات. تۆپی پێ تەنها یارییەکە، بەڵام بوونی تۆ لە ژیانی مندا گرنگترین ڕاستییە. 🌟
+
+با جیهان هەرچۆنێک بێت، تۆ لای من هەمیشە لە پلەی یەکەمی و گەورەترین نازناوی منی. تۆ تەواوی دنیای منی و هیچ دۆڕانێک ناتوانێت لە بەهای تۆ کەم بکاتەوە لای من. 🧸
+
+ئێستا خەمەکانت لەبیربکە و وەرە باوەشی من... لێرە چاوەڕێتم، بە هێواشی ماچت دەکەم و دڵت دەدەمەوە تا دووبارە ئەو زەردەخەنە کویتەت بگەڕێتەوە سەر لێوت. تەنها یەک داواکاریم لێت هەیە؛ تکایە وازی لەو شتە بێنە و با هیچ شتێک مەودا نەخاتە نێوانمان. من و تۆ پێکەوە هەمیشە براوەین. 🌸💜`;
+
+        let index = 0;
+        let isTypingStarted = false;
+
+        function startEverything() {
+            // لێدانی گۆرانییەکە
             if (loveSong.paused) {
                 loveSong.play();
-                btnText.innerText = "⏸️ ڕاگرتنی مۆسیقاکە";
+                btnText.innerText = "⏸️ ڕاگرتنی گۆرانییەکە";
+                
+                // تەنها یەکجار ئەنیمێیشنی تایپینگەکە دەستپێدەکات
+                if (!isTypingStarted) {
+                    typingContainer.innerHTML = "";
+                    isTypingStarted = true;
+                    typeText();
+                }
             } else {
                 loveSong.pause();
                 btnText.innerText = "🎵 لێدانی گۆرانی کاتی خوێندنەوە";
             }
         }
 
-        // درووستکردنی دڵە باراوەکان بە شێوەی نەرم
+        function typeText() {
+            if (index < fullMessage.length) {
+                // زیادکردنی پیت بە پیت
+                typingContainer.innerHTML = fullMessage.substring(0, index + 1) + '<span class="cursor"></span>';
+                index++;
+                // خێرایی نووسینی پیتەکان (٤5 میلی چرکە لۆ هەر پیتێک)
+                setTimeout(typeText, 45);
+            } else {
+                // لادانی هێڵی تایپینگ کاتێک تەواو دەبێت
+                typingContainer.innerHTML = fullMessage;
+            }
+        }
+
+        // بارینی دڵەکان لە باگراوەنددا
         function dropHearts() {
             const heart = document.createElement('div');
             heart.classList.add('floating-heart');
