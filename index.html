@@ -87,7 +87,7 @@
 
         .panda-img {
             width: 100%;
-            max-width: 260px;
+            max-width: 220px;
             height: auto;
             border-radius: 24px;
             box-shadow: 0 12px 30px rgba(244, 114, 182, 0.15);
@@ -119,11 +119,11 @@
             line-height: 2.1;
             font-size: 16px;
             color: #3b0764;
-            min-height: 200px; /* بۆ ئەوەی شاشەکە تێکنەچێت کاتێک دەنوسرێت */
+            min-height: 200px;
             white-space: pre-line;
         }
 
-        /* نیشاندەری تایپینگ (Cursor) */
+        /* نیشاندەری تایپینگ */
         .cursor {
             display: inline-block;
             width: 3px;
@@ -159,7 +159,7 @@
 </head>
 <body>
 
-    <!-- گۆرانییەکی کلاسیکی یەکجار دڵنشین و ئاشقانەی ئینگلیزی بە دەنگ (Vocal) -->
+    <!-- گۆرانی کلاسیک و ئاشقانە بە دەنگ -->
     <audio id="love-song" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
 
     <div class="container">
@@ -173,9 +173,9 @@
         <div class="story-card">
             <h1 class="main-title">بۆ شاژنی دڵم 🧸</h1>
             
-            <!-- وێنەی دوو پاندای ڕاستەقینەی ئاشق و زۆر شیرین لە باوەشی یەکدا -->
+            <!-- وێنەی نوێ و ١٠٠٪ جێگیری دوو پاندای ئەنیمێیشنی ئاشق -->
             <div class="panda-frame">
-                <img src="https://img.freepik.com/premium-vector/cute-panda-couple-love-cartoon-vector-illustration_494539-725.jpg" alt="Cute Panda Couple In Love" class="panda-img">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Two_cute_pandas_in_love.png" alt="Cute Pandas In Love" class="panda-img" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=panda_love_fallback'">
             </div>
 
             <!-- هۆنراوە سەرەکییەکە -->
@@ -184,7 +184,6 @@
                 «کریستیانۆش دەرکرا، گرنگ نییە... تۆ تەنها جامی منی!» 🏆
             </div>
 
-            <!-- ئەم بەشە بە شێوازی تایپینگ دەنوسرێتەوە کاتێک کلیک لەسەر دوگمەکە دەکات -->
             <div class="text-body" id="typing-text">بۆ دەستپێکردنی نامەکە، تکایە سەرەتا کلیک لەسەر دوگمەی سەرەوە بکە... 🌸</div>
         </div>
 
@@ -195,7 +194,6 @@
         const btnText = document.getElementById('btn-text');
         const typingContainer = document.getElementById('typing-text');
 
-        // دەقی نامەکە کە بە شێوازی تایپینگ دێت
         const fullMessage = `سڵاو لە دڵە میهرەبانەکەت... دەزانم چەندە خەمباری لۆ دەرکرانی کریستیانۆ ڕۆناڵدۆ و چەندە بە پەرۆش بووی بۆی، بەڵام ویستم پێتبڵێم هیچ شتێک لەم دنیایەدا شایەنی ئەوە نییە ئەو چاوە جوانانەت غەمبار بکات. تۆپی پێ تەنها یارییەکە، بەڵام بوونی تۆ لە ژیانی مندا گرنگترین ڕاستییە. 🌟
 
 با جیهان هەرچۆنێک بێت، تۆ لای من هەمیشە لە پلەی یەکەمی و گەورەترین نازناوی منی. تۆ تەواوی دنیای منی و هیچ دۆڕانێک ناتوانێت لە بەهای تۆ کەم بکاتەوە لای من. 🧸
@@ -206,12 +204,10 @@
         let isTypingStarted = false;
 
         function startEverything() {
-            // لێدانی گۆرانییەکە
             if (loveSong.paused) {
                 loveSong.play();
                 btnText.innerText = "⏸️ ڕاگرتنی گۆرانییەکە";
                 
-                // تەنها یەکجار ئەنیمێیشنی تایپینگەکە دەستپێدەکات
                 if (!isTypingStarted) {
                     typingContainer.innerHTML = "";
                     isTypingStarted = true;
@@ -225,18 +221,14 @@
 
         function typeText() {
             if (index < fullMessage.length) {
-                // زیادکردنی پیت بە پیت
                 typingContainer.innerHTML = fullMessage.substring(0, index + 1) + '<span class="cursor"></span>';
                 index++;
-                // خێرایی نووسینی پیتەکان (٤5 میلی چرکە لۆ هەر پیتێک)
                 setTimeout(typeText, 45);
             } else {
-                // لادانی هێڵی تایپینگ کاتێک تەواو دەبێت
                 typingContainer.innerHTML = fullMessage;
             }
         }
 
-        // بارینی دڵەکان لە باگراوەنددا
         function dropHearts() {
             const heart = document.createElement('div');
             heart.classList.add('floating-heart');
