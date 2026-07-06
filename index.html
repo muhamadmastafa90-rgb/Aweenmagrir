@@ -13,12 +13,12 @@
         }
 
         body {
-            background: linear-gradient(180deg, #fff0f6 0%, #f3e8ff 50%, #fae8ff 100%);
+            background: linear-gradient(180deg, #fff5f5 0%, #fff0f6 50%, #f3e8ff 100%);
             color: #4a044e;
             min-height: 100vh;
             overflow-y: auto;
             overflow-x: hidden;
-            padding: 20px 15px;
+            padding: 25px 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -26,171 +26,199 @@
 
         .container {
             width: 100%;
-            max-width: 420px;
+            max-width: 430px;
             display: flex;
             flex-direction: column;
-            gap: 25px;
-            margin-top: 15px;
-            margin-bottom: 40px;
+            gap: 30px;
         }
 
-        .cute-card {
+        /* دوگمەی مۆسیقای سەرەکی */
+        .music-card {
             background: rgba(255, 255, 255, 0.9);
-            border-radius: 30px;
-            padding: 30px 20px;
-            box-shadow: 0 15px 35px rgba(219, 39, 119, 0.12);
-            border: 2px solid rgba(244, 114, 182, 0.35);
+            border-radius: 20px;
+            padding: 15px;
             text-align: center;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(244, 114, 182, 0.1);
+            border: 1px solid rgba(244, 114, 182, 0.3);
         }
 
-        .welcome-title {
-            font-size: 20px;
-            font-weight: 700;
+        .music-btn {
+            background: linear-gradient(135deg, #f472b6 0%, #d946ef 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(244, 114, 182, 0.3);
+            width: 100%;
+            transition: transform 0.2s;
+        }
+
+        .music-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* کارتی ناوەڕۆک */
+        .story-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 35px;
+            padding: 35px 25px;
+            box-shadow: 0 20px 40px rgba(219, 39, 119, 0.08);
+            border: 2px solid rgba(244, 114, 182, 0.25);
+            text-align: center;
+            position: relative;
+        }
+
+        .main-title {
+            font-size: 22px;
+            font-weight: 800;
             color: #701a75;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
-        .image-container {
+        .sub-title {
+            font-size: 14px;
+            color: #9d174d;
+            margin-bottom: 25px;
+            opacity: 0.8;
+        }
+
+        /* چوارچێوەی وێنەی پانداکان */
+        .panda-frame {
             width: 100%;
             display: flex;
             justify-content: center;
-            margin: 20px 0;
+            margin-bottom: 25px;
         }
 
-        .message-image {
+        .panda-img {
             width: 100%;
-            max-width: 250px;
+            max-width: 240px;
             height: auto;
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(244, 114, 182, 0.15);
-            animation: softBounce 3s ease-in-out infinite alternate;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            animation: floatPanda 4s ease-in-out infinite alternate;
         }
 
-        @keyframes softBounce {
-            0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(-6px) scale(1.02); }
+        @keyframes floatPanda {
+            0% { transform: translateY(0) rotate(-1deg); }
+            100% { transform: translateY(-8px) rotate(1deg); }
         }
 
-        .letter-box {
-            text-align: justify;
-            line-height: 2;
-            font-size: 15.5px;
-            color: #4a044e;
-        }
-
-        .shair-box {
-            text-align: center;
+        /* بەشی هۆنراوە و دڵدانەوە */
+        .shair-premium {
+            background: linear-gradient(135deg, #fff0f6 0%, #f3e8ff 100%);
+            padding: 20px 15px;
+            border-radius: 22px;
             font-style: italic;
             color: #db2777;
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.6);
-            padding: 12px;
-            border-radius: 15px;
-            border: 1px dashed rgba(244, 114, 182, 0.5);
+            font-size: 16.5px;
+            font-weight: 700;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            border-right: 4px solid #db2777;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.02);
         }
 
-        .highlight {
+        .text-body {
+            text-align: justify;
+            line-height: 2.1;
+            font-size: 15.5px;
+            color: #3b0764;
+        }
+
+        .text-body p {
+            margin-bottom: 20px;
+        }
+
+        .love-badge {
             color: #db2777;
             font-weight: 700;
             background: rgba(244, 114, 182, 0.15);
-            padding: 2px 6px;
-            border-radius: 6px;
+            padding: 3px 8px;
+            border-radius: 8px;
         }
 
-        .music-control {
-            background: white;
-            border: 1px solid rgba(244, 114, 182, 0.4);
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: bold;
-            color: #db2777;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin-bottom: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .music-control:hover {
-            transform: scale(1.03);
-            background: #fff0f6;
-        }
-
-        .heart {
+        /* دڵە باراوەکان */
+        .floating-heart {
             position: absolute;
             pointer-events: none;
-            animation: floatUp 4.5s linear infinite;
+            animation: moveUp 4.5s linear infinite;
             opacity: 0;
             z-index: -1;
         }
 
-        @keyframes floatUp {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.4; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        @keyframes moveUp {
+            0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
+            15% { opacity: 0.8; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- بەستەری جێگیری گۆرانی ئاشقانە و کلاسیکی ئینگلیزی -->
-    <audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" loop></audio>
+    <!-- گۆرانی کلاسیک و زۆر هێمنی ئینگلیزی (بێ کێشە لۆد دەبێت) -->
+    <audio id="love-song" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" loop></audio>
 
     <div class="container">
         
-        <!-- دوگمەی لێدانی مۆسیقا لۆ مۆبایل -->
-        <button class="music-control" onclick="toggleMusic()" id="music-btn">🎵 لێدانی گۆرانی کلاسیکی ئاشقانە</button>
+        <!-- بەشی کۆنترۆڵی مۆسیقا لە سەرەوە -->
+        <div class="music-card">
+            <button class="music-btn" onclick="controlMusic()" id="btn-text">🎵 لێدانی گۆرانی کاتی خوێندنەوە</button>
+        </div>
 
-        <div class="cute-card">
-            <h1 class="welcome-title">لۆ تاقانەکەی دڵم 🧸✨</h1>
+        <!-- کارتی سەرەکی چیرۆکی دڵدانەوە -->
+        <div class="story-card">
+            <h1 class="main-title">بۆ شاژنی دڵم 🧸</h1>
+            <p class="sub-title">سەیری خوارەوە بکە کاتێک گۆرانییەکە لێدەدرێت...</p>
             
-            <!-- وێنەی چاککراوی دوو پاندای ئەنیمێیشنی قشت و مۆدێرن (بێ کێشە لۆد دەبێت) -->
-            <div class="image-container">
-                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=pandaLove" alt="Cute Pandas" class="message-image" style="background: #ffe4e6; padding: 10px;">
+            <!-- وێنەی یەکجار کویت و جوانی دوو پاندا لە باوەشی یەکدا (کارتۆنی جێگیر) -->
+            <div class="panda-frame">
+                <img src="https://img.freepik.com/free-vector/cute-panda-couple-hug-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated_138676-5776.jpg" alt="Cute Pandas Hugging" class="panda-img">
             </div>
 
-            <div class="letter-box">
-                <div class="shair-box">
+            <!-- نامەکەت بە شێوازی نوێ و زۆر ڕێک -->
+            <div class="text-body">
+                <div class="shair-premium">
                     «با بڕوخێ مۆندیال و دنیا و ناوبژیوان...» ❤️<br>
-                    «کریستیانۆش دەرکرا, گرنگ نییە... تۆ تەنها جامی منی!» 🏆
+                    «کریستیانۆش دەرکرا، گرنگ نییە... تۆ تەنها جامی منی!» 🏆
                 </div>
 
                 <p>سڵاو لە دڵە میهرەبانەکەت... دەزانم چەندە خەمباری لۆ دەرکرانی کریستیانۆ ڕۆناڵدۆ و چەندە بە پەرۆش بووی بۆی، بەڵام ویستم پێتبڵێم هیچ شتێک لەم دنیایەدا شایەنی ئەوە نییە ئەو چاوە جوانانەت غەمبار بکات. تۆپی پێ تەنها یارییەکە، بەڵام بوونی تۆ لە ژیانی مندا گرنگترین ڕاستییە. 🌟</p>
                 
-                <p style="margin-top: 15px;">با جیهان هەرچۆنێک بێت، تۆ لای من هەمیشە لە پلەی یەکەمی و گەورەترین نازناوی منی. <span class="highlight">تۆ تەواوی دنیای منی</span> و هیچ دۆڕانێک ناتوانێت لە بەهای تۆ کەم بکاتەوە لای من. 🧸</p>
+                <p>با جیهان هەرچۆنێک بێت، تۆ لای من هەمیشە لە پلەی یەکەمی و گەورەترین نازناوی منی. <span class="love-badge">تۆ تەواوی دنیای منی</span> و هیچ دۆڕانێک ناتوانێت لە بەهای تۆ کەم بکاتەوە لای من. 🧸</p>
                 
-                <p style="margin-top: 15px;">ئێستا خەمەکانت لەبیربکە و <span class="highlight">وەرە باوەشی من...</span> لێرە چاوەڕێتم، بە هێواشی ماچت دەکەم و دڵت دەدەمەوە تا دووبارە ئەو زەردەخەنە کویتەت بگەڕێتەوە سەر لێوت. تەنها یەک داواکاریم لێت هەیە؛ تکایە وازی لەو شتە بێنە و با هیچ شتێک مەودا نەخاتە نێوانمان. من و تۆ پێکەوە هەمیشە براوەین. 🌸💜</p>
+                <p>ئێستا خەمەکانت لەبیربکە و <span class="love-badge">وەرە باوەشی من...</span> لێرە چاوەڕێتم، بە هێواشی ماچت دەکەم و دڵت دەدەمەوە تا دووبارە ئەو زەردەخەنە کویتەت بگەڕێتەوە سەر لێوت. تەنها یەک داواکاریم لێت هەیە؛ تکایە وازی لەو شتە بێنە و با هیچ شتێک مەودا نەخاتە نێوانمان. من و تۆ پێکەوە هەمیشە براوەین. 🌸💜</p>
             </div>
         </div>
 
     </div>
 
     <script>
-        const bgMusic = document.getElementById('bg-music');
-        const musicBtn = document.getElementById('music-btn');
+        const loveSong = document.getElementById('love-song');
+        const btnText = document.getElementById('btn-text');
 
-        function toggleMusic() {
-            if (bgMusic.paused) {
-                bgMusic.play();
-                musicBtn.innerText = "⏸️ وەستاندنی مۆسیقا";
+        function controlMusic() {
+            if (loveSong.paused) {
+                loveSong.play();
+                btnText.innerText = "⏸️ ڕاگرتنی مۆسیقاکە";
             } else {
-                bgMusic.pause();
-                musicBtn.innerText = "🎵 لێدانی گۆرانی کلاسیکی ئاشقانە";
+                loveSong.pause();
+                btnText.innerText = "🎵 لێدانی گۆرانی کاتی خوێندنەوە";
             }
         }
 
-        function createHeart() {
+        // درووستکردنی دڵە باراوەکان بە شێوەی نەرم
+        function dropHearts() {
             const heart = document.createElement('div');
-            heart.classList.add('heart');
+            heart.classList.add('floating-heart');
             heart.innerHTML = ['💜', '💖', '🤍', '🌸', '✨', '💕'][Math.floor(Math.random() * 6)];
             heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = Math.random() * 18 + 14 + 'px';
-            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            heart.style.fontSize = Math.random() * 20 + 12 + 'px';
+            heart.style.animationDuration = Math.random() * 2 + 3.5 + 's';
             document.body.appendChild(heart);
 
             setTimeout(() => {
@@ -198,7 +226,7 @@
             }, 4500);
         }
 
-        setInterval(createHeart, 300);
+        setInterval(dropHearts, 250);
     </script>
 </body>
 </html>
