@@ -17,7 +17,6 @@
             background: linear-gradient(180deg, #fff0f6 0%, #f3e8ff 50%, #fae8ff 100%);
             color: #4a044e;
             min-height: 100vh;
-            /* ڕێگەپێدان بە چوونە سەرەوە و خوارەوە (Scroll) لۆ مۆبایل */
             overflow-y: auto;
             overflow-x: hidden;
             padding: 20px 15px;
@@ -36,7 +35,6 @@
             margin-bottom: 40px;
         }
 
-        /* کارتی سەرەکی */
         .cute-card {
             background: rgba(255, 255, 255, 0.85);
             border-radius: 30px;
@@ -55,7 +53,6 @@
             margin-bottom: 10px;
         }
 
-        /* چوارچێوەی وێنەی دوو پاندای کویت */
         .image-container {
             width: 100%;
             display: flex;
@@ -78,7 +75,6 @@
             100% { transform: translateY(-8px); }
         }
 
-        /* بەشی نامە و دڵدانەوەی نوێ و ڕێک */
         .letter-box {
             text-align: justify;
             line-height: 2;
@@ -107,11 +103,10 @@
             border-radius: 6px;
         }
 
-        /* دوگمەی مۆسیقا لە سەرەوە */
         .music-control {
             background: white;
             border: 1px solid rgba(244, 114, 182, 0.4);
-            padding: 8px 18px;
+            padding: 10px 20px;
             border-radius: 50px;
             font-size: 14px;
             font-weight: bold;
@@ -119,9 +114,14 @@
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             margin-bottom: 10px;
+            transition: all 0.3s ease;
         }
 
-        /* دڵە باراوەکان */
+        .music-control:hover {
+            transform: scale(1.05);
+            background: #fff0f6;
+        }
+
         .heart {
             position: absolute;
             pointer-events: none;
@@ -140,20 +140,20 @@
 </head>
 <body>
 
-    <!-- لۆ تەنها یەک مۆسیقا بە ناوی music.mp3 لای خۆت دابنی -->
-    <audio id="bg-music" src="music.mp3" loop></audio>
+    <!-- مۆسیقای ئاشقانەی ئینگلیزی ئۆنلاین (بە بێ پێویستی بە داگرتن لای خۆت) -->
+    <audio id="bg-music" src="https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-493.mp3" loop></audio>
 
     <div class="container">
         
-        <!-- دوگمەی لێدانی مۆسیقا (لۆ مۆبایل زۆر گرنگە چونکە ئۆتۆماتیک لێ نادرێت) -->
-        <button class="music-control" onclick="toggleMusic()" id="music-btn">🎵 لێدانی مۆسیقا لۆ فەزاكە</button>
+        <!-- دوگمەی لێدانی مۆسیقا لۆ مۆبایل -->
+        <button class="music-control" onclick="toggleMusic()" id="music-btn">🎵 لێدانی مۆسیقای ئاشقانە</button>
 
         <div class="cute-card">
             <h1 class="welcome-title">لۆ تاقانەکەی دڵم 🧸✨</h1>
             
-            <!-- وێنەی دوو پاندای زۆر کویت کە خۆم بە ئۆتۆماتیک لە ئینتەرنێتەوە بۆم داناویت -->
+            <!-- وێنەی دوو پاندای ئاشقانەی زۆر کویت بە شێوەی ئۆنلاین -->
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1598128558393-70ff21433be0?q=80&w=600&auto=format&fit=crop" alt="Cute Pandas" class="message-image">
+                <img src="https://img.freepik.com/free-vector/cute-panda-couple-love-valentines-day_1017-36224.jpg" alt="Cute Pandas" class="message-image">
             </div>
 
             <div class="letter-box">
@@ -182,11 +182,10 @@
                 musicBtn.innerText = "⏸️ وەستاندنی مۆسیقا";
             } else {
                 bgMusic.pause();
-                musicBtn.innerText = "🎵 لێدانی مۆسیقا لۆ فەزاكە";
+                musicBtn.innerText = "🎵 لێدانی مۆسیقای ئاشقانە";
             }
         }
 
-        // درووستکردنی دڵە باراوەکان بە ئۆتۆماتیکی
         function createHeart() {
             const heart = document.createElement('div');
             heart.classList.add('heart');
@@ -201,7 +200,6 @@
             }, 4500);
         }
 
-        // دەستپێکردنی دڵەکان هەر لەگەڵ کردنەوەی سایتەکە
         setInterval(createHeart, 300);
     </script>
 </body>
