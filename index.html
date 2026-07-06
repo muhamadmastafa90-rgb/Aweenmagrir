@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بۆ تاقانەکەم 🌸</title>
-    <!-- هێنانی فۆنتی شیرینی کوردی بۆ نوسینەکان -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rudur&display=swap" rel="stylesheet">
@@ -107,7 +106,6 @@
             font-family: 'Rudur', sans-serif;
         }
 
-        /* بەشی تایبەت بە فۆنتی تایپینگی کوردی */
         .text-body {
             text-align: justify;
             line-height: 2.3;
@@ -115,7 +113,7 @@
             color: #3b0764;
             min-height: 200px;
             white-space: pre-line;
-            font-family: 'Rudur', 'Courier New', monospace; /* فۆنتی شێوازی تایپینگ */
+            font-family: 'Rudur', 'Courier New', monospace;
             font-weight: 500;
         }
 
@@ -149,21 +147,12 @@
             90% { opacity: 0.3; }
             100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
         }
-
-        /* شاردنەوەی یاریەکە لە پشت شاشە بۆ کارکردنی مسۆگەری گۆرانییەکە */
-        #youtube-player {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            opacity: 0;
-            pointer-events: none;
-        }
     </style>
 </head>
 <body>
 
-    <!-- بەستەر و کۆدی یوتیوبی فەرمی لۆ گۆرانی Scared to Fall in Love تا بە مسۆگەری لێبدرێت -->
-    <iframe id="youtube-player" src="https://www.youtube.com/embed/S2pS6p_5_QY?enablejsapi=1&loop=1&playlist=S2pS6p_5_QY" allow="autoplay"></iframe>
+    <!-- بەستەری ڕاستەوخۆ و جێگیری مۆسیقای Scared to Fall in Love لە سێرڤەری گشتی -->
+    <audio id="love-song" src="https://archive.org/download/scared-to-fall-in-love/scared_to_fall_in_love.mp3" loop></audio>
 
     <div class="container">
         
@@ -174,7 +163,6 @@
         <div class="story-card">
             <h1 class="main-title">بۆ شاژنی دڵم 🧸</h1>
             
-            <!-- وێنەی دوو پاندای کارتۆنی ئاشق بە کۆدی ناوخۆیی -->
             <div class="panda-container">
                 <svg width="220" height="120" viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="60" cy="70" r="35" fill="white" stroke="#333" stroke-width="3"/>
@@ -214,18 +202,7 @@
     </div>
 
     <script>
-        let player;
-        // پەیوەندیکردن بە فۆرمی یوتیوبەوە بۆ کۆنترۆڵکردنی دەنگەکە
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('youtube-player');
-        }
-        
-        // بارکردنی سکریپتی فەرمی یوتیوب
-        const tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        const firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
+        const loveSong = document.getElementById('love-song');
         const btnText = document.getElementById('btn-text');
         const typingContainer = document.getElementById('typing-text');
 
@@ -237,16 +214,13 @@
 
         let index = 0;
         let isTypingStarted = false;
-        let isPlaying = false;
 
         function startEverything() {
-            if (!isPlaying) {
-                // لێدانی گۆرانی یوتیوبەکە بە فەرمی
-                if(player && player.playVideo) {
-                    player.playVideo();
-                }
+            if (loveSong.paused) {
+                loveSong.play().catch(function(error) {
+                    console.log("Audio play failed: ", error);
+                });
                 btnText.innerText = "⏸️ ڕاگرتنی گۆرانییەکە";
-                isPlaying = true;
                 
                 if (!isTypingStarted) {
                     typingContainer.innerHTML = "";
@@ -254,11 +228,8 @@
                     typeText();
                 }
             } else {
-                if(player && player.pauseVideo) {
-                    player.pauseVideo();
-                }
+                loveSong.pause();
                 btnText.innerText = "🎵 لێدانی گۆرانی کاتی خوێندنەوە";
-                isPlaying = false;
             }
         }
 
@@ -266,7 +237,7 @@
             if (index < fullMessage.length) {
                 typingContainer.innerHTML = fullMessage.substring(0, index + 1) + '<span class="cursor"></span>';
                 index++;
-                setTimeout(typeText, 60); // خێرایی هێواش و مۆدێرنی تایپینگ لۆ خوێندنەوە
+                setTimeout(typeText, 60);
             } else {
                 typingContainer.innerHTML = fullMessage;
             }
