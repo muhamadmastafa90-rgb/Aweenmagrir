@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بۆ تاقانەکەم 🌸</title>
+    <!-- هێنانی فۆنتی شیرینی کوردی لۆ چارەسەری کێشەی نوسینەکە -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rudur&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Rudur', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
@@ -32,7 +37,6 @@
             gap: 25px;
         }
 
-        /* دوگمەی مۆسیقای پریمێوم */
         .music-card {
             background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
@@ -56,11 +60,6 @@
             transition: all 0.2s ease;
         }
 
-        .music-btn:active {
-            transform: scale(0.97);
-        }
-
-        /* کارتی ناوەڕۆک */
         .story-card {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 35px;
@@ -77,53 +76,43 @@
             margin-bottom: 5px;
         }
 
-        /* چوارچێوەی وێنەی پاندا ئاشقەکان */
-        .panda-frame {
+        /* دروستکردنی دوو پاندای ئاشق بە کۆد بۆ ئەوەی کێشەی نەکردنەوەی نەمێنێت */
+        .panda-container {
             width: 100%;
             display: flex;
             justify-content: center;
+            align-items: center;
             margin: 20px 0;
-        }
-
-        .panda-img {
-            width: 100%;
-            max-width: 220px;
-            height: auto;
-            border-radius: 24px;
-            box-shadow: 0 12px 30px rgba(244, 114, 182, 0.15);
             animation: floatPanda 4s ease-in-out infinite alternate;
         }
 
         @keyframes floatPanda {
-            0% { transform: translateY(0) rotate(-1deg); }
-            100% { transform: translateY(-8px) rotate(1deg); }
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
         }
 
-        /* بەشی هۆنراوە جێگیرەکە */
         .shair-premium {
             background: linear-gradient(135deg, #fff0f6 0%, #f3e8ff 100%);
             padding: 15px;
             border-radius: 22px;
             font-style: italic;
             color: #db2777;
-            font-size: 16.5px;
+            font-size: 16px;
             font-weight: 700;
             line-height: 1.8;
             margin-bottom: 25px;
             border-right: 4px solid #db2777;
         }
 
-        /* بەشی ئەنیمێیشنی تایپینگی نامەکە */
         .text-body {
             text-align: justify;
-            line-height: 2.1;
+            line-height: 2.2;
             font-size: 16px;
             color: #3b0764;
             min-height: 200px;
             white-space: pre-line;
         }
 
-        /* نیشاندەری تایپینگ */
         .cursor {
             display: inline-block;
             width: 3px;
@@ -140,7 +129,6 @@
             100% { opacity: 0; }
         }
 
-        /* دڵە باراوەکان */
         .floating-heart {
             position: absolute;
             pointer-events: none;
@@ -159,26 +147,50 @@
 </head>
 <body>
 
-    <!-- گۆرانی کلاسیک و ئاشقانە بە دەنگ -->
-    <audio id="love-song" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+    <!-- لێدانی ڕاستەقینەی گۆرانی Scared to Fall in Love -->
+    <audio id="love-song" src="https://pub-c5e31b5cdafb419a991161d1022a270d.r2.dev/scared_to_fall_in_love.mp3" loop></audio>
 
     <div class="container">
         
-        <!-- کۆنترۆڵی مۆسیقا -->
         <div class="music-card">
             <button class="music-btn" onclick="startEverything()" id="btn-text">🎵 کرتە بکە لۆ لێدانی گۆرانی و خوێندنەوەی نامەکە</button>
         </div>
 
-        <!-- کارتی سەرەکی -->
         <div class="story-card">
             <h1 class="main-title">بۆ شاژنی دڵم 🧸</h1>
             
-            <!-- وێنەی نوێ و ١٠٠٪ جێگیری دوو پاندای ئەنیمێیشنی ئاشق -->
-            <div class="panda-frame">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Two_cute_pandas_in_love.png" alt="Cute Pandas In Love" class="panda-img" onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=panda_love_fallback'">
+            <!-- وێنەی وەک کۆدی SVG ڕوون لۆ دوو پاندای کارتۆنی ئاشقی یەکتر -->
+            <div class="panda-container">
+                <svg width="220" height="120" viewBox="0 0 220 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- پاندای چەپ -->
+                    <circle cx="60" cy="70" r="35" fill="white" stroke="#333" stroke-width="3"/>
+                    <circle cx="35" cy="40" r="12" fill="#333"/>
+                    <circle cx="85" cy="40" r="12" fill="#333"/>
+                    <ellipse cx="48" cy="65" rx="8" ry="12" fill="#333"/>
+                    <ellipse cx="72" cy="65" rx="8" ry="12" fill="#333"/>
+                    <circle cx="48" cy="63" r="3" fill="white"/>
+                    <circle cx="72" cy="63" r="3" fill="white"/>
+                    <circle cx="60" cy="75" r="4" fill="#333"/>
+                    <ellipse cx="40" cy="78" rx="5" ry="3" fill="#ffb6c1"/>
+                    <ellipse cx="80" cy="78" rx="5" ry="3" fill="#ffb6c1"/>
+                    
+                    <!-- دڵی سووری ناوەڕاست -->
+                    <path d="M110 55 C105 45, 95 45, 95 55 C95 65, 110 75, 110 75 C110 75, 125 65, 125 55 C125 45, 115 45, 110 55 Z" fill="#ff3366" transform="scale(1.2) translate(-18, -10)"/>
+                    
+                    <!-- پاندای ڕاست -->
+                    <circle cx="160" cy="70" r="35" fill="white" stroke="#333" stroke-width="3"/>
+                    <circle cx="135" cy="40" r="12" fill="#333"/>
+                    <circle cx="185" cy="40" r="12" fill="#333"/>
+                    <ellipse cx="148" cy="65" rx="8" ry="12" fill="#333"/>
+                    <ellipse cx="172" cy="65" rx="8" ry="12" fill="#333"/>
+                    <circle cx="148" cy="63" r="3" fill="white"/>
+                    <circle cx="172" cy="63" r="3" fill="white"/>
+                    <circle cx="160" cy="75" r="4" fill="#333"/>
+                    <ellipse cx="140" cy="78" rx="5" ry="3" fill="#ffb6c1"/>
+                    <ellipse cx="180" cy="78" rx="5" ry="3" fill="#ffb6c1"/>
+                </svg>
             </div>
 
-            <!-- هۆنراوە سەرەکییەکە -->
             <div class="shair-premium">
                 «با بڕوخێ مۆندیال و دنیا و ناوبژیوان...» ❤️<br>
                 «کریستیانۆش دەرکرا، گرنگ نییە... تۆ تەنها جامی منی!» 🏆
@@ -223,7 +235,7 @@
             if (index < fullMessage.length) {
                 typingContainer.innerHTML = fullMessage.substring(0, index + 1) + '<span class="cursor"></span>';
                 index++;
-                setTimeout(typeText, 45);
+                setTimeout(typeText, 50);
             } else {
                 typingContainer.innerHTML = fullMessage;
             }
